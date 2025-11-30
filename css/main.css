@@ -1,0 +1,1426 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Combined Reset CSS | Based on destyle.css v4.0.1 and The new CSS reset v1.11.2 */
+/* Reset inherited styles, box-sizing, and handling of specific elements */
+*, ::before, ::after, :where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  box-sizing: border-box; /* Preferred box-sizing for both */
+  display: revert; /* From new reset - Reverts display property */
+}
+
+/* Document and elements */
+html {
+  line-height: 1.15; /* destyle - Correct line height */
+  -webkit-text-size-adjust: 100%; /* destyle - Prevent adjustments of font size after orientation changes in iOS */
+  -webkit-tap-highlight-color: transparent; /* destyle - Remove gray overlay on links for iOS */
+  -moz-text-size-adjust: none; /* new reset - Fix mobile Safari font size issue */
+  text-size-adjust: none; /* new reset */
+}
+
+body, button, input, optgroup, select, textarea {
+  margin: 0; /* destyle for body, new reset applies to all via unset */
+}
+
+main {
+  display: block;
+}
+
+/* Vertical rhythm */
+p, table, blockquote, address, pre, iframe, form, figure, dl, ol, ul, menu, summary {
+  margin: 0; /* destyle */
+  padding: 0; /* destyle for ol, ul, new reset applies to all */
+  list-style: none; /* new reset for list styles */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Lists (definition) */
+/* ============================================ */
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/* Grouping content */
+/* ============================================ */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+  border-top-width: 1px;
+  margin: 0;
+  clear: both;
+  color: inherit;
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+address {
+  font-style: inherit;
+}
+
+/* Forms and Interactive Elements */
+:where(button, input, optgroup, select, textarea, [type=button], [type=reset], [type=submit], label[for]) {
+  -webkit-appearance: none; /* destyle - Reset form fields to make them styleable */
+  appearance: none; /* destyle */
+  -webkit-user-select: auto; /* new reset - Safari fix for user-select */
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit; /* 2 */
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+  -webkit-user-select: auto;
+}
+
+button, [type=button], [type=reset], [type=submit] {
+  cursor: pointer;
+}
+
+button:disabled,
+[type=button]:disabled,
+[type=reset]:disabled,
+[type=submit]:disabled {
+  cursor: default;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * Improve outlines for Firefox and unify style with input elements & buttons.
+ */
+:-moz-focusring {
+  outline: auto;
+}
+
+select:disabled {
+  opacity: inherit;
+}
+
+/**
+ * Remove padding
+ */
+option {
+  padding: 0;
+}
+
+/**
+ * Reset to invisible
+ */
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+  * Correct the outline style in Safari.
+*/
+[type=search] {
+  outline-offset: -2px; /* 1 */
+}
+
+/**
+  * Remove the inner padding in Chrome and Safari on macOS.
+  */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+  * 1. Correct the inability to style clickable types in iOS and Safari.
+  * 2. Fix font inheritance.
+  */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+  * Fix appearance for Firefox
+  */
+[type=number] {
+  -moz-appearance: textfield;
+}
+
+/**
+  * Clickable labels
+  */
+:where(label[for]) {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+}
+
+svg, img, embed, object, iframe {
+  vertical-align: bottom;
+}
+
+/* Tables */
+/* ============================================ */
+table, td, th {
+  border-collapse: collapse; /* destyle & new reset */
+  padding: 0; /* destyle */
+}
+
+table {
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+}
+
+td,
+th {
+  vertical-align: top;
+  padding: 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Interactive */
+/* ============================================ */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/*
+ * Remove outline for editable content.
+ */
+[contenteditable]:focus {
+  outline: auto;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+	- fix for the content editable attribute will work properly.
+	- webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+  display: none;
+}
+
+/* フォームのリセット */
+input,
+textarea,
+select,
+button {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* 特定の要素のリセット */
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box; /* 現在のボックスモデルを使用 */
+  padding: 0;
+}
+
+/* 他のスタイルをリセット */
+button {
+  border: none;
+  padding: 0;
+  display: block;
+  background: none;
+  cursor: pointer;
+  /* その他のスタイルを追加 */
+}
+
+/* 全体的なフォームのリセット */
+form {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+:root {
+  --primary-color: #06334B;
+  --secondary-color: #F4F7F8;
+  --text-primary: #3F3F3F;
+  --font-family: "Poppins", "Noto Sans JP", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  background: var(--secondary-color);
+}
+
+span {
+  display: block;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+.link {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+/* overlay（PC dropdown 用） */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  z-index: 9999;
+  transition: all 0.2s ease;
+}
+.header.js-active {
+  transform: translateY(calc(-100% - 20px));
+  opacity: 0;
+}
+.header__inner {
+  max-width: 1340px;
+  width: 93.0555555556%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem 4rem;
+  justify-content: space-between;
+  background: #fff;
+}
+@media screen and (max-width: 768px) {
+  .header__inner {
+    padding: 1rem 2rem;
+  }
+}
+.header__logo {
+  z-index: 101;
+  flex: 1;
+}
+.header__logo.fixed {
+  position: fixed;
+  right: 3.4722222222%;
+}
+.header__logo.bottom {
+  position: absolute;
+  bottom: 0;
+}
+.header__logo-link {
+  width: 20rem;
+  height: 8rem;
+}
+@media screen and (max-width: 768px) {
+  .header__logo-link {
+    width: 14rem;
+    height: 5rem;
+  }
+}
+.header__nav {
+  flex: 2;
+  /* is-open 時に表示 */
+}
+.header__nav-list {
+  width: 100vw;
+  height: 100vh;
+  list-style-type: none;
+  padding: 120px 0px 0px 40px;
+  margin: 0;
+  font-size: 27px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 0.2s;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+@media (min-width: 769px) {
+  .header__nav-list {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    gap: 1.5625vw;
+    transform: translateX(0);
+    opacity: 1;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    position: static;
+  }
+}
+.header__nav-list.js-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+.header__nav-list.js-active .header__nav-item {
+  transform: translateX(0);
+}
+.header__nav-item {
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+@media (min-width: 769px) {
+  .header__nav-item {
+    margin: 0;
+    line-height: 1;
+  }
+}
+.header__nav-item--contact {
+  margin-left: auto;
+}
+@media screen and (max-width: 768px) {
+  .header__nav-item--contact {
+    margin-left: 0;
+  }
+}
+.header__nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+@media (min-width: 769px) {
+  .header__nav-link {
+    position: relative;
+  }
+  .header__nav-link::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all 0.15s;
+  }
+}
+.header__nav-link:hover::after {
+  transform: scaleX(1);
+}
+.header__nav-item.is-open > .header__submenu {
+  display: flex;
+}
+.header__nav-item.is-open > .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.header__submenu {
+  display: none;
+  position: absolute;
+  top: 5rem;
+  left: -4rem;
+  background: #fff;
+  width: 53.125%;
+  padding: 4rem;
+  z-index: 10;
+  flex-direction: column;
+  gap: 4rem;
+}
+@media screen and (max-width: 768px) {
+  .header__submenu {
+    position: static;
+    border: none;
+    padding: 0;
+    margin-top: 8px;
+  }
+}
+.header__hamburger {
+  --span-scale: 1;
+  --before-rot: 0deg;
+  --after-rot: 0deg;
+  --before-top: 0px;
+  --after-top: 0px;
+  width: 24px;
+  height: 18px;
+  margin-left: 1.6rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.header__hamburger span, .header__hamburger::before, .header__hamburger::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: #6e6e6e;
+  border-radius: 1px;
+  transform-origin: center center;
+}
+.header__hamburger::before {
+  transform: translateY(var(--before-top)) rotate(var(--before-rot));
+  animation: slide 1.4s infinite cubic-bezier(0.5, 0, 0.3, 1.2);
+  animation-delay: 0s;
+}
+.header__hamburger span {
+  transform: scaleX(var(--span-scale));
+  animation: slide 1.4s infinite cubic-bezier(0.5, 0, 0.3, 1.2);
+  animation-delay: 0.15s;
+}
+.header__hamburger::after {
+  transform: translateY(var(--after-top)) rotate(var(--after-rot));
+  animation: slide 1.4s infinite cubic-bezier(0.5, 0, 0.3, 1.2);
+  animation-delay: 0.3s;
+}
+.header__hamburger:hover span, .header__hamburger:hover::before, .header__hamburger:hover::after, .header__hamburger.js-open span, .header__hamburger.js-open::before, .header__hamburger.js-open::after {
+  animation: none;
+}
+
+.nav-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9991;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+/* 表示状態 */
+.nav-modal.js-open {
+  pointer-events: auto;
+}
+
+/* ========== 内側の白いパネル ========== */
+.nav-modal__inner {
+  background: #f3f7ff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.03s cubic-bezier(0.97, 0.09, 0.92, 0.66), opacity 0.05s ease;
+}
+
+/* 開いたときにふわっと出る */
+.nav-modal.js-open .nav-modal__inner {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.1s cubic-bezier(0.97, 0.09, 0.92, 0.66), opacity 0.2s cubic-bezier(0.97, 0.09, 0.92, 0.66);
+}
+
+/* ========== リスト部分 ========== */
+.nav-modal__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: min-content;
+  display: flex;
+  gap: 28px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .nav-modal__list {
+    flex-direction: column;
+  }
+}
+
+.nav-modal__link {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.nav-modal__link:hover {
+  opacity: 0.6;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(0);
+  }
+  60% {
+    transform: translateX(100%) scaleX(0);
+  }
+  61% {
+    transform: translateX(-100%) scaleX(0);
+  }
+  70% {
+    transform: translateX(-100%) scaleX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background: #494949;
+}
+
+.page {
+  /* ページタイトル部分 */
+  /* 本文の最大幅（読み物メインの下層ページ向け） */
+  /* パンくず（ある場合） */
+}
+.page__head {
+  padding-block: clamp(40px, 8vw, 80px);
+  background: #f5f7fa;
+}
+.page__heading-primary {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: 0.12em;
+  font-weight: bold;
+  display: block;
+}
+.page__heading-secondary {
+  margin-top: 8px;
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: 16px;
+  color: #284193;
+  margin-top: 8px;
+  font-weight: bold;
+  display: block;
+}
+.page__content {
+  max-width: 720px;
+  margin-inline: auto;
+  padding-block: clamp(40px, 6vw, 80px);
+}
+.page__breadcrumb {
+  font-size: 14px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333;
+  background: #f3f7ff;
+  line-height: 1.7;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.icon-button {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background: transparent;
+  border: 1px solid #0051dc;
+  transition: all 0.2s ease;
+}
+.icon-button .arrow {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1px;
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  stroke: #0051dc;
+}
+
+.text-link {
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+.text-link:hover::after {
+  transform: scaleX(1);
+}
+.text-link:hover .icon-button {
+  background: #0051dc;
+  border-color: #0051dc;
+}
+.text-link:hover .icon-button .arrow {
+  stroke: #fff;
+}
+
+.container, .section__inner {
+  /* 最大幅（実務で最も汎用的な1200〜1360px帯） */
+  --container-max: 1280px;
+  /* 左右の余白：vwベースで溶けるレイアウトに対応 */
+  --container-pad: clamp(16px, 4vw, 40px);
+  width: min(100% - var(--container-pad) * 2, var(--container-max));
+  margin-inline: auto;
+}
+
+.section {
+  --section-pad-block: clamp(10rem, 10vw, 20rem);
+  padding-block: var(--section-pad-block);
+  /* 共通でコンテナを内包させる場合に使う（必須ではない） */
+}
+.reveal--image {
+  position: relative;
+}
+.reveal--image::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f3f7ff;
+  transform: scaleX(1);
+  transform-origin: right;
+  z-index: 2;
+}
+.reveal--image::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0051dc;
+  transform-origin: right;
+  transform: scale(0);
+  z-index: 1;
+}
+.reveal--image.is-visible::before {
+  transform: scaleX(0);
+  transition: 1s cubic-bezier(0.23, 0.41, 0, 0.98);
+}
+.reveal--image.is-visible::after {
+  animation: cover 1s cubic-bezier(0.23, 0.41, 0, 0.98);
+}
+
+.reveal--text {
+  opacity: 0;
+}
+.reveal--text.is-visible {
+  opacity: 1;
+}
+
+.ttl {
+  position: relative;
+  display: inline-block;
+  transform: translate(-120%, 0);
+}
+.ttl::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f3f7ff;
+  transform-origin: right;
+  transform: scaleX(1);
+}
+.ttl.is-visible {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: transform 0.4s cubic-bezier(0.32, 0.25, 0.42, 0.91);
+}
+.ttl.is-visible::before {
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.32, 0.25, 0.42, 0.91);
+}
+
+.heading {
+  margin-bottom: 6.4rem;
+}
+.heading-primary {
+  font-size: clamp(3rem, 8vw, 8rem);
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+  font-weight: bold;
+  display: block;
+}
+.heading-secondary {
+  font-size: 1.4rem;
+  color: #284193;
+  font-weight: bold;
+  display: block;
+}
+
+.lead {
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  letter-spacing: 0.14em;
+  font-weight: bold;
+  margin-bottom: 4.8rem;
+}
+
+/* ===== 背景（親） ===== */
+.shape__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ===== ゆらぎシェイプ ===== */
+.shape {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle at 30% 30%, #7196d4, #375d9f, #162f61);
+  filter: blur(90px);
+  opacity: 0.85;
+  border-radius: 40% 60% 60% 40%;
+  animation: floatShape 60s ease-in-out infinite;
+}
+
+/* 配置違いで2つ置く */
+.shape--1 {
+  top: -120px;
+  left: -120px;
+  transform: scale(1.1);
+}
+
+.shape--2 {
+  bottom: -140px;
+  right: -100px;
+  animation-delay: -20s;
+}
+
+/* ===== ゆっくり揺れるアニメーション ===== */
+@keyframes floatShape {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 40% 60% 60% 40%;
+  }
+  50% {
+    transform: translate(40px, 20px) scale(1.08);
+    border-radius: 45% 55% 65% 35%;
+  }
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #98beef, #285591);
+  position: relative;
+}
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: url("../images/hero_02.png") no-repeat center/cover;
+  filter: blur(12px);
+  opacity: 0.2;
+}
+
+/* ===== Hero のテキスト（前面） ===== */
+.hero__inner {
+  position: relative;
+  z-index: 3;
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  padding: 0 0 140px 0;
+  padding: min(160px, 10vw) 0 min(140px, 10vw) 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+}
+
+.hero__text {
+  font-size: 2.4rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.about__inner {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+}
+@media screen and (max-width: 768px) {
+  .about__inner {
+    flex-direction: column;
+  }
+}
+.about__image {
+  width: 40%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .about__image {
+    width: 100%;
+    aspect-ratio: 4/3;
+  }
+}
+.about__content {
+  width: 60%;
+}
+@media screen and (max-width: 768px) {
+  .about__content {
+    width: 100%;
+  }
+}
+.about__text {
+  margin-bottom: 4.8rem;
+}
+.about__link {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  width: max-content;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.strength-list {
+  position: relative;
+  padding-bottom: 8rem;
+}
+@media screen and (max-width: 768px) {
+  .strength-list {
+    padding-bottom: 0;
+  }
+}
+.strength-item {
+  position: sticky;
+  top: 10%;
+  background: #ffffff;
+  margin-bottom: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+@media screen and (max-width: 768px) {
+  .strength-item {
+    flex-direction: column;
+    position: static;
+    margin-bottom: 4.8rem;
+  }
+}
+.strength-num {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0051dc;
+}
+.strength-textarea {
+  width: 58%;
+}
+@media screen and (max-width: 768px) {
+  .strength-textarea {
+    width: 100%;
+    margin-bottom: 3.2rem;
+    padding: 2.4rem;
+  }
+}
+.strength-text {
+  margin-bottom: 1.6rem;
+}
+.strength-title {
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  letter-spacing: 0.12em;
+  font-weight: bold;
+  margin-bottom: 1.6rem;
+}
+.strength-image {
+  width: 34%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .strength-image {
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
+}
+.strength .button {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  padding: 1.6rem 3.2rem;
+  color: #0048af;
+  border: 2px solid #0048af;
+  border-radius: 5rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.64, 0.02, 0.65, 0.67);
+}
+.strength .button:hover {
+  color: #f5f5f5;
+  background: #0048af;
+}
+
+.service__layout {
+  display: flex;
+  gap: 4rem;
+}
+@media screen and (max-width: 768px) {
+  .service__layout {
+    flex-direction: column;
+  }
+}
+.service__side {
+  width: 200px;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .service__side {
+    display: none;
+  }
+}
+.service__side .service__nav {
+  position: sticky;
+  top: 20%;
+}
+.service__side .service__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.service__side .service__nav-item {
+  padding: 10px 0;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.3s, font-weight 0.3s;
+}
+.service__side .service__nav-item.is-active {
+  opacity: 1;
+  font-weight: 700;
+}
+.service__side .service__nav-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.service__item {
+  margin-bottom: 20rem;
+}
+@media screen and (max-width: 768px) {
+  .service__item {
+    margin-bottom: 4rem;
+  }
+}
+.service__link {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  padding: 4.8rem 4rem;
+  background: #fff;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .service__link {
+    gap: 2.4rem;
+    justify-content: end;
+  }
+}
+.service__num {
+  line-height: 1;
+  font-weight: bold;
+  color: #0051dc;
+  font-size: 1.2rem;
+  position: unset;
+  top: -48px;
+  left: unset;
+  right: -31px;
+}
+.service__icon {
+  width: 24%;
+  border-radius: 50%;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+.service__textarea {
+  width: 90%;
+}
+@media screen and (max-width: 768px) {
+  .service__textarea {
+    width: 100%;
+  }
+}
+.service__title {
+  font-size: 1.6rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+}
+.service__text {
+  font-size: 1.4rem;
+  letter-spacing: 0.18em;
+}
+
+.message-inner {
+  max-width: 1240px;
+  width: 86.1111111111vw;
+  margin: 0 auto;
+}
+.message-content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+@media screen and (max-width: 768px) {
+  .message-content {
+    flex-direction: column;
+  }
+}
+.message-textarea {
+  width: 54%;
+  width: 53.90625%;
+}
+@media screen and (max-width: 768px) {
+  .message-textarea {
+    width: 100%;
+    margin-bottom: 3.2rem;
+  }
+}
+.message-text {
+  margin-bottom: 1.6rem;
+  line-height: 2;
+  margin-bottom: 3.2rem;
+}
+.message-sign {
+  margin-left: auto;
+  width: max-content;
+}
+.message-sign__title {
+  font-size: 1.2rem;
+}
+.message-sign__name {
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+}
+.message-image {
+  width: 40%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .message-image {
+    width: 100%;
+    aspect-ratio: 5/4;
+  }
+}
+
+.contact {
+  padding-block: 0;
+  background: linear-gradient(135deg, #98beef, #285591);
+  position: relative;
+}
+.contact::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: url("../images/hero_01.png") no-repeat center/cover;
+  filter: blur(10px);
+  opacity: 0.1;
+}
+.contact__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .contact__inner {
+    flex-direction: column;
+  }
+}
+.contact__link {
+  width: 100%;
+  padding: 8rem 0;
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .contact__link {
+    flex-direction: column;
+  }
+}
+.contact__textarea {
+  flex: 1;
+}
+.contact .button-wrap {
+  width: 40%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact .icon-button-contact {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1px solid #f3f7ff;
+}
+@media screen and (max-width: 768px) {
+  .contact .icon-button-contact {
+    width: 80px;
+    height: 80px;
+  }
+}
+.contact .icon-button-contact .arrow {
+  width: 24px;
+  height: 24px;
+  stroke: #f3f7ff;
+}
+@media screen and (max-width: 768px) {
+  .contact .icon-button-contact .arrow {
+    width: 12px;
+    height: 12px;
+  }
+}
+.contact .text-link:hover .icon-button-contact {
+  background: #f3f7ff;
+}
+.contact .text-link:hover .icon-button-contact .arrow {
+  stroke: #0051dc;
+}
+
+.footer {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+.footer__upper {
+  padding-bottom: 40px;
+}
+.footer__inner {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.footer__logo {
+  margin-bottom: 24px;
+  width: 2rem;
+}
+.footer__logo-link {
+  width: 24rem;
+  height: 8rem;
+}
+.footer__office {
+  font-size: 1.4rem;
+}
+.footer .footer-nav__list {
+  column-gap: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+.footer .footer-nav__link {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.footer .footer-nav__item:first-child {
+  grid-row: 1/-1;
+}
+.footer__submenu-link {
+  color: #555;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.footer__submenu-link::before {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 1px;
+  background: #0051dc;
+}
+.footer__bottom {
+  border-top: 1px solid #eee;
+  padding-top: 24px;
+}
+.footer__bottom-inner {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer__policy-list {
+  display: flex;
+  gap: 20px;
+}
+.footer__policy-link {
+  font-size: 1.2rem;
+}
+.footer__legal {
+  font-size: 1.2rem;
+  display: flex;
+  gap: 1.6rem;
+}/*# sourceMappingURL=main.css.map */
