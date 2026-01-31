@@ -28,7 +28,6 @@ observer.observe(hero);
 const modal = document.querySelector('.nav-modal');
 const hamburger = document.querySelector('.header__hamburger'); 
 
-
 let isOpen = false;
 
 const tl = gsap.timeline({ paused: true });
@@ -42,7 +41,7 @@ const tl = gsap.timeline({ paused: true });
 
 tl.to(hamburger, {
 	"--span-scale": 0,
-		"--before-top": "8px",
+	"--before-top": "8px",
 	"--after-top": "-8px",
 	duration: 0.15,
 	ease: "power2.inOut"
@@ -59,14 +58,17 @@ hamburger.addEventListener("click", () => {
 	if (isOpen) {
 		tl.reverse();
 		modal.classList.remove("js-open");
-		hamburger.classList.remove("js-open");
+		header.classList.remove("js-open");
 	} else {
 		tl.play();
 		modal.classList.add("js-open");
-		hamburger.classList.add("js-open");
+		header.classList.add("js-open");
 	}
 	isOpen = !isOpen;
 });
+
+
+
 
 
 
@@ -357,6 +359,7 @@ ScrollTrigger.create({
 
 
 
+
 // const io = new IntersectionObserver((entries, observer) => {
 // 	entries.forEach(e => {
 // 		if (e.isIntersecting) {
@@ -475,3 +478,196 @@ wrap.addEventListener('mouseleave', () => {
 	});
 });
 
+
+
+
+
+
+
+
+
+
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+// const hero = document.querySelector(".hero");
+
+
+
+
+// ==============================
+// 設定
+// ==============================
+// const COUNT = 120;
+const COUNT = window.innerWidth < 768 ? 40 : 120;
+const RADIUS = 2;
+const LINE_DISTANCE = 120;
+const LINE_DISTANCE_SQ = LINE_DISTANCE * LINE_DISTANCE;
+const MAX_CONNECTIONS = 2; // ★ 1点につき最大2本
+
+
+
+// ==============================
+// 状態
+// ==============================
+const points = [];
+
+for (let i = 0; i < COUNT; i++) {
+	points.push({
+		x: Math.random() * canvas.width,
+		y: Math.random() * canvas.height,
+		vx: (Math.random() - 0.5) * .5,
+		vy: (Math.random() - 0.5) * .3,
+		r: RADIUS,
+	});
+}
+
+// ==============================
+// ループ
+// ==============================
+function loop() {
+	// --------------------------
+	// 移動
+	// --------------------------
+	for (const p of points) {
+		p.x += p.vx;
+		p.y += p.vy;
+
+		if (p.x < p.r || p.x > canvas.width - p.r) p.vx *= -1;
+		if (p.y < p.r || p.y > canvas.height - p.r) p.vy *= -1;
+	}
+
+	// --------------------------
+	// 画面クリア
+	// --------------------------
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	// --------------------------
+	// 接続関係を作る
+	// --------------------------
+	const connected = Array.from({ length: points.length }, () => []);
+
+	for (let i = 0; i < points.length; i++) {
+		for (let j = i + 1; j < points.length; j++) {
+			const a = points[i];
+			const b = points[j];
+
+			const dx = a.x - b.x;
+			const dy = a.y - b.y;
+			const distSq = dx * dx + dy * dy;
+
+			// 衝突
+			const minDist = a.r + b.r;
+			if (distSq < minDist * minDist) {
+				const tx = a.vx;
+				const ty = a.vy;
+				a.vx = b.vx;
+				a.vy = b.vy;
+				b.vx = tx;
+				b.vy = ty;
+			}
+
+			// 線が引ける距離なら接続として記録
+			if (distSq < LINE_DISTANCE_SQ) {
+				connected[i].push(j);
+				connected[j].push(i);
+			}
+		}
+	}
+
+	// --------------------------
+	// 三角形を塗る（先に）
+	// --------------------------
+	// ctx.fillStyle = "rgba(255,255,255,0.04)";
+	ctx.fillStyle = "rgba(46, 163, 153, 0.3)";
+
+	
+
+	for (let i = 0; i < connected.length; i++) {
+		for (const j of connected[i]) {
+			if (j <= i) continue;
+
+			for (const k of connected[j]) {
+				if (k <= j) continue;
+
+				// i - j - k - i がすべて繋がっている？
+				if (connected[k].includes(i)) {
+					const a = points[i];
+					const b = points[j];
+					const c = points[k];
+
+					ctx.beginPath();
+					ctx.moveTo(a.x, a.y);
+					ctx.lineTo(b.x, b.y);
+					ctx.lineTo(c.x, c.y);
+					ctx.closePath();
+					ctx.fill();
+				}
+			}
+		}
+	}
+
+	// --------------------------
+	// 線を描く
+	// --------------------------
+	for (let i = 0; i < connected.length; i++) {
+		for (const j of connected[i]) {
+			if (j <= i) continue;
+
+			const a = points[i];
+			const b = points[j];
+
+			const dx = a.x - b.x;
+			const dy = a.y - b.y;
+			const distSq = dx * dx + dy * dy;
+			const alpha = 1 - distSq / LINE_DISTANCE_SQ;
+
+			ctx.strokeStyle = `rgba(46, 163, 153, ${alpha})`;
+			ctx.lineWidth = 1;
+			ctx.beginPath();
+			ctx.moveTo(a.x, a.y);
+			ctx.lineTo(b.x, b.y);
+			ctx.stroke();
+		}
+	}
+
+	// --------------------------
+	// 点を描く
+	// --------------------------
+	ctx.fillStyle = "rgba(46, 163, 153, 0.8)";
+	for (const p of points) {
+		ctx.beginPath();
+		ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+		ctx.fill();
+	}
+
+	requestAnimationFrame(loop);
+}
+
+loop();
+
+
+
+
+function resize() {
+  
+
+  const oldW = canvas.width;
+  const oldH = canvas.height;
+
+	canvas.width = hero.clientWidth;
+  canvas.height = hero.clientHeight;
+
+  const sx = canvas.width  / oldW;
+  const sy = canvas.height / oldH;
+
+  // 位置を比率で補正
+  for (const p of points) {
+    p.x *= sx;
+    p.y *= sy;
+  }
+}
+
+window.addEventListener("resize", resize);
+resize();
