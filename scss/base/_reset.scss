@@ -1,0 +1,416 @@
+/* Combined Reset CSS | Based on destyle.css v4.0.1 and The new CSS reset v1.11.2 */
+
+/* Reset inherited styles, box-sizing, and handling of specific elements */
+*, ::before, ::after, :where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+//   all: unset; /* From new reset - Removes all inherited styles */
+  box-sizing: border-box; /* Preferred box-sizing for both */
+  display: revert; /* From new reset - Reverts display property */
+}
+
+/* Document and elements */
+html {
+  line-height: 1.15; /* destyle - Correct line height */
+  -webkit-text-size-adjust: 100%; /* destyle - Prevent adjustments of font size after orientation changes in iOS */
+  -webkit-tap-highlight-color: transparent; /* destyle - Remove gray overlay on links for iOS */
+  -moz-text-size-adjust: none; /* new reset - Fix mobile Safari font size issue */
+  text-size-adjust: none; /* new reset */
+}
+
+body, button, input, optgroup, select, textarea {
+  margin: 0; /* destyle for body, new reset applies to all via unset */
+}
+
+main {
+	display: block;
+}
+
+/* Vertical rhythm */
+p, table, blockquote, address, pre, iframe, form, figure, dl, ol, ul, menu, summary {
+  margin: 0; /* destyle */
+  padding: 0; /* destyle for ol, ul, new reset applies to all */
+  list-style: none; /* new reset for list styles */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+	font-size: inherit;
+	font-weight: inherit;
+	margin: 0;
+}
+
+// /* Elements specificity */
+// hr, pre, a, abbr[title], b, strong, code, kbd, samp, small, sub, sup, svg, img, embed, object, iframe, button, input, optgroup, select, textarea, [type="button"], [type="reset"], [type="submit"], ::placeholder, dialog:modal, ::-webkit-details-marker {
+//   /* destyle rules and new reset adjustments */
+//   /* Specific properties are reset based on the destyle.css and new reset values */
+// }
+
+
+/* Lists (definition) */
+/* ============================================ */
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-left: 0;
+}
+
+/* Grouping content */
+/* ============================================ */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+	box-sizing: content-box; /* 1 */
+	height: 0; /* 1 */
+	overflow: visible; /* 2 */
+	border-top-width: 1px;
+	margin: 0;
+	clear: both;
+	color: inherit;
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+
+pre {
+	font-family: monospace, monospace; /* 1 */
+	font-size: inherit; /* 2 */
+}
+
+address {
+	font-style: inherit;
+}
+
+
+
+	
+/* Forms and Interactive Elements */
+:where(button, input, optgroup, select, textarea, [type="button"], [type="reset"], [type="submit"], label[for]) {
+	-webkit-appearance: none; /* destyle - Reset form fields to make them styleable */
+	appearance: none; /* destyle */
+	-webkit-user-select: auto; /* new reset - Safari fix for user-select */
+
+	vertical-align: middle;
+	color: inherit;
+	font: inherit;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	text-align: inherit;
+	text-transform: inherit; /* 2 */
+}
+
+
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+	-webkit-user-select: auto;
+}
+
+button,[type="button"],[type="reset"],[type="submit"] {
+	cursor: pointer;
+}
+
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+	cursor: default;
+}
+
+a,button {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+/**
+ * Improve outlines for Firefox and unify style with input elements & buttons.
+ */
+
+:-moz-focusring {
+	outline: auto;
+}
+
+select:disabled {
+	opacity: inherit;
+}
+
+/**
+ * Remove padding
+ */
+
+option {
+	padding: 0;
+}
+
+/**
+ * Reset to invisible
+ */
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+}
+
+legend {
+	padding: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+	vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+	overflow: auto;
+}
+
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+	white-space: revert;
+}
+
+
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+/**
+  * Correct the outline style in Safari.
+*/
+
+[type="search"] {
+  outline-offset: -2px; /* 1 */
+}
+
+/**
+  * Remove the inner padding in Chrome and Safari on macOS.
+  */
+
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+  * 1. Correct the inability to style clickable types in iOS and Safari.
+  * 2. Fix font inheritance.
+  */
+::-webkit-file-upload-button {  
+   -webkit-appearance: button; /* 1 */
+   font: inherit; /* 2 */
+}
+
+/**
+  * Fix appearance for Firefox
+  */
+[type="number"] {
+	-moz-appearance: textfield;
+}
+
+/**
+  * Clickable labels
+  */
+
+:where(label[for]) {
+	cursor: pointer;
+}
+
+
+// /* Miscellaneous */
+// img {
+//   max-inline-size: 100%; /* new reset - For images to not exceed their container */
+//   max-block-size: 100%; /* new reset */
+// }
+img {
+	width: 100%;
+}
+
+svg,img,embed,object,iframe {
+	vertical-align: bottom;
+}
+
+
+
+/* Tables */
+/* ============================================ */
+
+table, td, th {
+  border-collapse: collapse; /* destyle & new reset */
+  padding: 0; /* destyle */
+}
+
+
+table {
+	border-color: inherit;
+	border-collapse: collapse;
+}
+
+caption {
+	text-align: left;
+}
+
+td,
+th {
+	vertical-align: top;
+	padding: 0;
+}
+
+th {
+	text-align: left;
+	font-weight: bold;
+}
+
+
+
+/* Interactive */
+/* ============================================ */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+	display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+	display: list-item;
+}
+
+/*
+ * Remove outline for editable content.
+ */
+
+[contenteditable]:focus {
+	outline: auto;
+}
+
+// /* Reverting and Fixing Styles */
+// :where(pre), meter, [hidden], [contenteditable]:not([contenteditable="false"]), [draggable="true"] {
+//   /* Specific reverts and fixes from new reset applied to elements */
+// }
+
+
+/* minimum style to allow to style meter element */
+meter {
+	-webkit-appearance: revert;
+	appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+	all: revert;
+	box-sizing: border-box;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+	color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+	display: none;
+}
+
+/* revert for bug in Chromium browsers
+	- fix for the content editable attribute will work properly.
+	- webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+	-moz-user-modify: read-write;
+	-webkit-user-modify: read-write;
+	overflow-wrap: break-word;
+	-webkit-line-break: after-white-space;
+	-webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+	-webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+	all: revert;
+	box-sizing: border-box;
+}
+
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+	display: none;
+}
+
+
+
+
+
+
+// chatGPTのformのリセット
+/* フォームのリセット */
+input,
+textarea,
+select,
+button {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* 特定の要素のリセット */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 現在のボックスモデルを使用 */
+  padding: 0;
+}
+
+/* 他のスタイルをリセット */
+button {
+	border: none;
+	padding: 0;
+	display: block;
+	background: none;
+	cursor: pointer;
+	/* その他のスタイルを追加 */
+}
+
+/* 全体的なフォームのリセット */
+form {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+

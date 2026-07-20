@@ -1,0 +1,85 @@
+// _cta.scss
+
+// -----------------------------------------
+// CTA（共通）
+// -----------------------------------------
+.cta {
+	position: relative;
+	padding-block: clamp(40px, 8vw, 80px);
+	color: #fff;
+
+	--cta-bg: #0051dc;
+
+	background: var(--cta-bg);
+
+	.cta__inner {
+		@extend .container;
+		text-align: center;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: clamp(16px, 3vw, 32px);
+	}
+
+	.cta__title {
+		font-size: clamp(24px, 4vw, 36px);
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.cta__text {
+		font-size: clamp(14px, 2vw, 18px);
+		line-height: 1.8;
+		max-width: 640px;
+		opacity: 0.9;
+	}
+}
+
+// -----------------------------------------
+// CTAタイプA：帯タイプ（full-width）
+// -----------------------------------------
+.cta--band {
+	/* 背景画像やグラデにも対応できるように */
+	&.cta--bg {
+		--cta-bg: none;
+
+		.cta__background {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				filter: brightness(0.7);
+			}
+		}
+	}
+}
+
+// -----------------------------------------
+// CTAタイプB：ボックスタイプ（カード）
+// -----------------------------------------
+.cta--box {
+	background: #fff;
+	color: #111;
+	border-radius: 16px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+	--cta-title-color: #111;
+	--cta-text-color: #333;
+
+	.cta__inner {
+		padding: clamp(32px, 6vw, 56px);
+	}
+
+	.cta__title {
+		color: var(--cta-title-color);
+	}
+
+	.cta__text {
+		color: var(--cta-text-color);
+	}
+}

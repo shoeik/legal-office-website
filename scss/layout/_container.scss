@@ -1,0 +1,12 @@
+
+// _container.scss
+.container {
+	/* 最大幅（実務で最も汎用的な1200〜1360px帯） */
+	--container-max: 1280px;
+
+	/* 左右の余白：vwベースで溶けるレイアウトに対応 */
+	--container-pad: clamp(16px, 4vw, 40px);
+
+	width: min(100% - var(--container-pad) * 2, var(--container-max));
+	margin-inline: auto;
+}

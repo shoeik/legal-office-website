@@ -1,0 +1,94 @@
+// _card.scss
+
+// -----------------------------------------
+// カードの基本構造
+// -----------------------------------------
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	padding: clamp(20px, 2vw, 28px);
+	border-radius: 12px;
+
+	background: #fff;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+	}
+}
+
+// -----------------------------------------
+// カードのバリエーション（用途別）
+// -----------------------------------------
+
+/* サービス・特徴カード（アイコンタイプ） */
+.card--service {
+	text-align: left;
+
+	.card__icon {
+		width: 48px;
+		height: 48px;
+		flex-shrink: 0;
+
+		svg,
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
+
+/* 実績や記事のサムネイル（画像タイプ） */
+.card--media {
+	.card__image {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		border-radius: 8px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+	}
+
+	&:hover {
+		.card__image img {
+			transform: scale(1.05);
+		}
+	}
+}
+
+// -----------------------------------------
+// カード内部の要素
+// -----------------------------------------
+.card__title {
+	font-size: clamp(18px, 2vw, 22px);
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.card__text {
+	font-size: clamp(14px, 1.6vw, 16px);
+	line-height: 1.8;
+	color: #333;
+}
+
+.card__link {
+	margin-top: auto;
+	font-weight: 600;
+	color: #0051dc;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

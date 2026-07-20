@@ -1,0 +1,31 @@
+// _section.scss
+
+.section {
+	/* セクションの縦余白（PC/SPどちらにも自然に対応） */
+	--section-pad-block: clamp(60px, 10vw, 120px);
+
+	padding-block: var(--section-pad-block);
+
+	/* 共通でコンテナを内包させる場合に使う（必須ではない） */
+	&__inner {
+		@extend .container;
+	}
+
+	/* セクションタイトルの共通余白 */
+	&__head {
+		margin-block-end: clamp(24px, 4vw, 48px);
+	}
+
+	/* セクションの説明文（ある場合） */
+	&__lead {
+		max-width: 720px;
+		margin-block-end: clamp(24px, 4vw, 48px);
+	}
+}
+
+/* セクション間のスペーシング（用途別に使い分け） */
+.space-xs { padding-block: 20px; }
+.space-s { padding-block: 40px; }
+.space-m { padding-block: 60px; }
+.space-l { padding-block: 80px; }
+.space-xl { padding-block: 120px; }

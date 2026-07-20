@@ -1,0 +1,83 @@
+// _button.scss
+
+// -----------------------------------------
+// 基本ボタンスタイル（BEM）
+// -----------------------------------------
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+
+	padding: clamp(12px, 1.4vw, 16px) clamp(20px, 2vw, 32px);
+	border-radius: 6px;
+
+	transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+
+	/* デフォルト色（変数でサイトごとに上書き可能） */
+	--btn-bg: #0051dc;
+	--btn-color: #fff;
+	--btn-border: transparent;
+
+	background-color: var(--btn-bg);
+	color: var(--btn-color);
+	border: 1px solid var(--btn-border);
+
+	&:hover {
+		opacity: 0.9;
+	}
+}
+
+// -----------------------------------------
+// ボタンバリエーション
+// -----------------------------------------
+
+/* Primary（メインアクション） */
+.button--primary {
+	--btn-bg: #0051dc;
+	--btn-color: #fff;
+	--btn-border: #0051dc;
+}
+
+/* Secondary（枠あり・反転） */
+.button--secondary {
+	--btn-bg: transparent;
+	--btn-color: #0051dc;
+	--btn-border: #0051dc;
+
+	&:hover {
+		background-color: #0051dc;
+		color: #fff;
+	}
+}
+
+/* Text（リンク風） */
+.button--text {
+	--btn-bg: transparent;
+	--btn-border: transparent;
+	--btn-color: #0051dc;
+
+	padding-inline: 0;
+	padding-block: 0;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+/* アイコンつきを想定（必要に応じて） */
+.button__icon {
+	width: 1em;
+	height: 1em;
+	display: inline-flex;
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>お問い合わせ | 櫻井行政書士事務所</title>
+	<link rel="stylesheet" href="css/contact.css">
+	<script type="module" src="script.js"></script>
+</head>
+<body>
+
+	<header class="site-header">
+		<div class="site-header__inner">
+			<h1 class="site-header__logo">
+				<a href="/">○○行政書士事務所</a>
+			</h1>
+			<nav class="site-header__nav" aria-label="メインメニュー">
+				<ul class="site-header__nav-list">
+					<li class="site-header__nav-item"><a href="/">TOP</a></li>
+					<li class="site-header__nav-item"><a href="/service.html">業務内容</a></li>
+					<li class="site-header__nav-item"><a href="/about.html">事務所案内</a></li>
+					<li class="site-header__nav-item"><a href="/contact.html" aria-current="page">お問い合わせ</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main class="contact" id="main">
+		<header class="contact__header">
+			<div class="contact__header-inner">
+				<p class="contact__label">CONTACT</p>
+				<h1 class="contact__title">お問い合わせ</h1>
+				<p class="contact__lead">
+					「何から始めればいいかわからない」という段階でも構いません。<br>
+					下記フォームまたはお電話・メールより、お気軽にご連絡ください。
+				</p>
+			</div>
+		</header>
+
+		<!-- お問い合わせフォーム -->
+		<section class="contact-form" aria-labelledby="contact-form-title">
+			<div class="contact-form__inner">
+				<h2 class="contact-form__title" id="contact-form-title">お問い合わせフォーム</h2>
+				<p class="contact-form__note">
+					※ 必須項目には必ずご入力ください。
+				</p>
+
+				<form class="contact-form__form" action="/contact/submit" method="post">
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact-name">
+							お名前 <span class="contact-form__required">必須</span>
+						</label>
+						<input
+							type="text"
+							id="contact-name"
+							name="name"
+							class="contact-form__input"
+							required
+							autocomplete="name"
+							placeholder="例）山田 太郎">
+					</div>
+
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact-kana">
+							ふりがな
+						</label>
+						<input
+							type="text"
+							id="contact-kana"
+							name="kana"
+							class="contact-form__input"
+							autocomplete="off"
+							placeholder="例）やまだ たろう">
+					</div>
+
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact-email">
+							メールアドレス <span class="contact-form__required">必須</span>
+						</label>
+						<input
+							type="email"
+							id="contact-email"
+							name="email"
+							class="contact-form__input"
+							required
+							autocomplete="email"
+							placeholder="例）example@example.com">
+					</div>
+
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact-tel">
+							電話番号 <span class="contact-form__optional">任意</span>
+						</label>
+						<input
+							type="tel"
+							id="contact-tel"
+							name="tel"
+							class="contact-form__input"
+							pattern="^[0-9()+\-ー－\s]+$"
+							inputmode="tel"
+							placeholder="例）03-1234-5678">
+						<p class="contact-form__help">
+							※ 半角数字・ハイフンでご入力ください。
+						</p>
+					</div>
+
+					<div class="contact-form__field">
+						<span class="contact-form__label">
+							ご相談分野 <span class="contact-form__optional">任意</span>
+						</span>
+						<div class="contact-form__checkbox-group">
+							<label class="contact-form__checkbox">
+								<input type="checkbox" name="category[]" value="construction">
+								<span>建設業許可</span>
+							</label>
+							<label class="contact-form__checkbox">
+								<input type="checkbox" name="category[]" value="company">
+								<span>会社設立</span>
+							</label>
+							<label class="contact-form__checkbox">
+								<input type="checkbox" name="category[]" value="inheritance">
+								<span>相続・遺言</span>
+							</label>
+							<label class="contact-form__checkbox">
+								<input type="checkbox" name="category[]" value="kobutsu">
+								<span>古物商許可</span>
+							</label>
+							<label class="contact-form__checkbox">
+								<input type="checkbox" name="category[]" value="contract">
+								<span>契約書作成・チェック</span>
+							</label>
+							<label class="contact-form__checkbox">
+								<input type="checkbox" name="category[]" value="other">
+								<span>その他</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="contact-form__field">
+						<span class="contact-form__label">
+							ご希望の連絡方法 <span class="contact-form__optional">任意</span>
+						</span>
+						<div class="contact-form__radio-group">
+							<label class="contact-form__radio">
+								<input type="radio" name="contact_way" value="email" checked>
+								<span>メールでの連絡を希望</span>
+							</label>
+							<label class="contact-form__radio">
+								<input type="radio" name="contact_way" value="tel">
+								<span>電話での連絡を希望</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact-message">
+							お問い合わせ内容 <span class="contact-form__required">必須</span>
+						</label>
+						<textarea
+							id="contact-message"
+							name="message"
+							class="contact-form__textarea"
+							required
+							rows="6"
+							minlength="10"
+							placeholder="ご相談内容や現在の状況について、可能な範囲でご記入ください。"></textarea>
+					</div>
+
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact-file">
+							添付ファイル <span class="contact-form__optional">任意</span>
+						</label>
+						<input
+							type="file"
+							id="contact-file"
+							name="attachment"
+							class="contact-form__input"
+							accept=".pdf,.jpg,.jpeg,.png,.heic,.heif">
+						<p class="contact-form__help">
+							※ 申請書の下書きや参考資料などがあれば添付してください。（PDF / 画像 など）
+						</p>
+					</div>
+
+					<div class="contact-form__field contact-form__field--privacy">
+						<p class="contact-form__privacy-text">
+							送信いただいた個人情報は、お問い合わせへの回答およびご連絡の目的のみに利用し、<br>
+							法令に基づく場合を除き、第三者に提供することはありません。<br>
+							<a href="/privacy.html" class="contact-form__privacy-link">プライバシーポリシー</a>をご確認のうえ、同意いただける場合はチェックをお願いします。
+						</p>
+						<label class="contact-form__checkbox">
+							<input
+								type="checkbox"
+								name="agree"
+								value="1"
+								required>
+							<span>プライバシーポリシーに同意する</span>
+						</label>
+					</div>
+
+					<div class="contact-form__actions">
+						<button type="submit" class="contact-form__submit">
+							入力内容を送信する
+						</button>
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<!-- 問い合わせ後の流れ -->
+		<section class="contact-flow" aria-labelledby="contact-flow-title">
+			<div class="contact-flow__inner">
+				<h2 class="contact-flow__title" id="contact-flow-title">お問い合わせからご相談までの流れ</h2>
+				<ol class="contact-flow__list">
+					<li class="contact-flow__item">
+						<h3 class="contact-flow__step-title">1. フォーム送信</h3>
+						<p class="contact-flow__step-text">
+							本ページのフォームより、お問い合わせ内容を送信してください。
+						</p>
+					</li>
+					<li class="contact-flow__item">
+						<h3 class="contact-flow__step-title">2. 事務所からのご連絡</h3>
+						<p class="contact-flow__step-text">
+							原則として、1〜2営業日以内にメールまたはお電話にて折り返しご連絡いたします。
+						</p>
+					</li>
+					<li class="contact-flow__item">
+						<h3 class="contact-flow__step-title">3. ヒアリング・お見積もり</h3>
+						<p class="contact-flow__step-text">
+							対面・オンライン・電話などご希望の方法で詳細をお伺いし、費用とスケジュールをご提案します。
+						</p>
+					</li>
+					<li class="contact-flow__item">
+						<h3 class="contact-flow__step-title">4. ご依頼・手続き開始</h3>
+						<p class="contact-flow__step-text">
+							内容にご納得いただけましたら正式なご依頼となり、手続きに着手いたします。
+						</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- FAQ -->
+		<section class="contact-faq" aria-labelledby="contact-faq-title">
+			<div class="contact-faq__inner">
+				<h2 class="contact-faq__title" id="contact-faq-title">よくあるご質問</h2>
+				<dl class="contact-faq__list">
+					<div class="contact-faq__item">
+						<dt class="contact-faq__question">Q. 相談だけでも大丈夫ですか？</dt>
+						<dd class="contact-faq__answer">
+							A. はい、相談のみでも問題ございません。まずは現状を整理し、必要な手続きや費用の目安をご案内いたします。
+						</dd>
+					</div>
+					<div class="contact-faq__item">
+						<dt class="contact-faq__question">Q. 初回相談は有料ですか？</dt>
+						<dd class="contact-faq__answer">
+							A. 初回のご相談は無料です。どのような内容でも、お気軽にお問い合わせください。
+						</dd>
+					</div>
+					<div class="contact-faq__item">
+						<dt class="contact-faq__question">Q. オンラインでの相談は可能ですか？</dt>
+						<dd class="contact-faq__answer">
+							A. はい、ZoomやGoogle Meetなどを利用したオンライン相談にも対応しております。ご希望の場合はフォーム内の備考欄にその旨をご記入ください。
+						</dd>
+					</div>
+				</dl>
+			</div>
+		</section>
+
+		<!-- 事務所情報・アクセス -->
+		<section class="contact-office" aria-labelledby="contact-office-title">
+			<div class="contact-office__inner">
+				<div class="contact-office__info">
+					<h2 class="contact-office__title" id="contact-office-title">事務所情報</h2>
+					<address class="contact-office__address">
+						<p class="contact-office__line">
+							<span class="contact-office__label">事務所名：</span>
+							<span class="contact-office__value">○○行政書士事務所</span>
+						</p>
+						<p class="contact-office__line">
+							<span class="contact-office__label">代表者：</span>
+							<span class="contact-office__value">行政書士 ○○ ○○</span>
+						</p>
+						<p class="contact-office__line">
+							<span class="contact-office__label">登録番号：</span>
+							<span class="contact-office__value">○○○○○号</span>
+						</p>
+						<p class="contact-office__line">
+							<span class="contact-office__label">住所：</span>
+							<span class="contact-office__value">〒000-0000 東京都○○区○○0-0-0 ○○ビル3F</span>
+						</p>
+						<p class="contact-office__line">
+							<span class="contact-office__label">TEL：</span>
+							<span class="contact-office__value">03-1234-5678（平日 9:00〜18:00）</span>
+						</p>
+						<p class="contact-office__line">
+							<span class="contact-office__label">MAIL：</span>
+							<span class="contact-office__value"><a href="mailto:info@example.com">info@example.com</a></span>
+						</p>
+						<p class="contact-office__line">
+							<span class="contact-office__label">営業時間：</span>
+							<span class="contact-office__value">平日 9:00〜18:00（事前予約により時間外対応可）</span>
+						</p>
+						<p class="contact-office__line">
+							<span class="contact-office__label">定休日：</span>
+							<span class="contact-office__value">土日祝（ご相談内容により柔軟に対応いたします）</span>
+						</p>
+					</address>
+				</div>
+
+				<div class="contact-office__map">
+					<h3 class="contact-office__map-title">アクセス</h3>
+					<div class="contact-office__map-frame">
+						<iframe
+							class="contact-office__map-iframe"
+							title="○○行政書士事務所の所在地"
+							src="https://www.google.com/maps/embed?pb="
+							style="border:0;"
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							allowfullscreen>
+						</iframe>
+						<p class="contact-office__map-note">
+							※ 実際の所在地に合わせて地図を設定してください。
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="site-footer__inner">
+			<p class="site-footer__copy">&copy; ○○行政書士事務所</p>
+		</div>
+	</footer>
+
+</body>
+</html>

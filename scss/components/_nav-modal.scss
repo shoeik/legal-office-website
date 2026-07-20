@@ -1,0 +1,55 @@
+// _nav-modal.scss
+
+.nav-modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,0.5);
+	backdrop-filter: blur(6px);
+
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s;
+	z-index: 999;
+
+	.nav-modal__inner {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 80%;
+		max-width: 320px;
+
+		background: #fff;
+		padding: 40px 24px;
+
+		display: flex;
+		flex-direction: column;
+	}
+
+	.nav-modal__nav {
+		margin-top: 40px;
+	}
+
+	.nav-modal__list {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.nav-modal__link {
+		color: #111;
+		font-size: 18px;
+		font-weight: 600;
+		text-decoration: none;
+
+		&--cta {
+			text-align: center;
+			display: block;
+		}
+	}
+
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+	}
+}

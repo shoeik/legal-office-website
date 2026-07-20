@@ -1,0 +1,88 @@
+
+
+// ブレイクポイントの定義
+$breakpoints: (
+	"small": 481px,  // スマートフォン
+	// スマホファーストなので、最小のブレイクポイントを設定する必要はありません
+	
+	"medium": 768px, // タブレット縦向き
+	"large": 1025px, // タブレット横向き & デスクトップ
+	"xlarge": 1441px // 大きなデスクトップ
+);
+
+
+// // メディアクエリ用のミックスイン
+@mixin breakpoint($name) {
+	$value: map-get($breakpoints, $name);
+	@if $value != null {
+		@media (min-width: $value) {
+			@content;
+		}
+	}
+	@else {
+		@warn "指定されたブレイクポイント（#{$name}）は存在しません。";
+	}
+}
+
+
+// // 使用例
+// .container {
+// 	width: 100%;
+	
+// 	@include breakpoint(medium) {
+// 		width: 80%;
+// 	}
+	
+// 	@include breakpoint(large) {
+// 		width: 75%;
+// 	}
+	
+// 	@include breakpoint(xlarge) {
+// 		width: 70%;
+// 	}
+// }
+
+
+
+// プロパティとブレイクポイントごとの値を設定するミックスイン
+@mixin responsive-property($property, $default-value, $breakpoint-values...) {
+	// デフォルト値の設定
+	#{$property}: $default-value;
+	
+	// ブレイクポイントごとの値の適用
+	@each $breakpoint, $value in $breakpoint-values {
+		@if map-has-key($breakpoints, $breakpoint) {
+			$breakpoint-value: map-get($breakpoints, $breakpoint);
+			@media (min-width: $breakpoint-value) {
+				#{$property}: $value;
+			}
+		}
+		@else {
+			@warn "未定義のブレイクポイント（#{$breakpoint}）が指定されました。";
+		}
+	}
+}
+
+// // 使用例
+// .example {
+// 	@include responsive-property(margin, 10px, medium 20px, large 30px);
+// }
+
+
+
+
+@mixin fz($fz_max, $fz_min, $w_max:1280, $w_min:375) {
+    font-size: calc(#{$fz_min/10}rem + ((1vw - #{$w_min/1000}rem) * #{($fz_max - $fz_min) / (($w_max / 100) - ($w_min / 100))}));
+    @media screen and (min-width: #{$w_max}px){
+        font-size: #{$fz_max/10}rem;
+    }
+    @media screen and (max-width: #{$w_min}px){
+        font-size: #{$fz_min/10}rem;
+    }
+}
+
+
+
+@function calculate-width($target-width, $container-width) {
+	@return ($target-width / $container-width) * 100%;
+}

@@ -1,0 +1,59 @@
+
+
+// 下層ページ共通
+.page {
+	/* ページタイトル部分 */
+	&__head {
+		padding-block: clamp(40px, 8vw, 80px);
+		background: #f5f7fa;
+	}
+
+	&__heading{
+
+		&-primary {
+
+
+			font-size: clamp(24px, 4vw, 36px);
+			font-weight: 700;
+
+			font-size: 48px;
+			// line-height: 1;
+			letter-spacing: 0.12em;
+			// text-transform: uppercase;
+
+			font-weight: bold;
+			display: block;
+
+			// padding-left: 35px;
+		}
+		&-secondary {
+
+			margin-top: 8px;
+			font-size: clamp(16px, 2.5vw, 20px);
+			font-size: 16px;
+			// line-height: 2.2;
+			// letter-spacing: 0.1em;
+			color: #284193;
+			margin-top: 8px;
+			font-weight: bold;
+			
+			display: block;
+		}
+	}
+	
+
+
+	/* 本文の最大幅（読み物メインの下層ページ向け） */
+	&__content {
+		max-width: 720px;
+		margin-inline: auto;
+		padding-block: clamp(40px, 6vw, 80px);
+	}
+
+	/* パンくず（ある場合） */
+	&__breadcrumb {
+		font-size: 14px;
+		margin-bottom: 16px;
+		opacity: 0.7;
+	}
+}

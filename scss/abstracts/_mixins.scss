@@ -1,0 +1,12 @@
+
+
+// @mixin fz($fz_max, $fz_min, $w_max:1441, $w_min:375) {
+@mixin fz($fz_max, $fz_min, $w_max:1025, $w_min:425) {
+    font-size: calc(#{$fz_min/10}rem + ((1vw - #{$w_min/1000}rem) * #{($fz_max - $fz_min) / (($w_max / 100) - ($w_min / 100))}));
+    @media screen and (min-width: #{$w_max}px){
+        font-size: #{$fz_max/10}rem;
+    }
+    @media screen and (max-width: #{$w_min}px){
+        font-size: #{$fz_min/10}rem;
+    }
+}

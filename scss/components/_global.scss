@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --primary-color: #06334B;
+    --secondary-color: #F4F7F8;
+
+    --text-primary: #3F3F3F;
+    // --text-secondary: #F4F7F8;
+    // --text-tertiary: #41B3A3;
+
+    // --background-color: var(--text-secondary);
+
+    --font-family: "Poppins", "Noto Sans JP", sans-serif;;
+    // --en-font-family: "Poppins", sans-serif;
+    // --base-spacing: 1.6rem;
+}
+
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    // margin: 0;
+    // padding: 0;
+    color: var(--text-primary);
+	font-size: 1.6rem;
+	letter-spacing: 0.12em;
+	line-height: 1.5;
+
+    background: var(--secondary-color);
+}
+
+// .font-english {
+//     font-family: var(--en-font-family);
+// }
+
+// .text-primary {
+//     color: var(--text-primary);
+// }
+
+span {
+    display: block;
+}
+
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.link {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: var(--primary-color);
+	line-height: 1;
+}
+
